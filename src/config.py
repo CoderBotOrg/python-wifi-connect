@@ -30,7 +30,9 @@ if "$UNIQUE_ID" in hotspot_ssid:
         for line in f:
             if "Serial" in line:
                 serial = line.replace(" ", "").split(":")[1]
-                hotspot_ssid = hotspot_ssid.replace("$UNIQUE_ID", serial[-5:-1])
+                hotspot_ssid = hotspot_ssid.replace(
+                    "$UNIQUE_ID", serial[-5:-1]
+                )
 
 # Set default hotspot password.
 if "PWC_HOTSPOT_PASSWORD" in env_file:
