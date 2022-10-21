@@ -29,8 +29,11 @@ if "$UNIQUE_ID" in hotspot_ssid:
     with open("/proc/cpuinfo") as f:
         for line in f:
             if "Serial" in line:
-                serial = line.replace(" ","").split(":")[1]
-                hotspot_ssid.replace("$UNIQUE_ID", serial[-5:-1])
+                serial = line.replace(" ", "").split(":")[1]
+                hotspot_ssid.replace(
+                    "$UNIQUE_ID", 
+                    serial[-5:-1]
+                )
 
 hotspot_ssid.replace("$UNIQUE_ID", ) 
 # Set default hotspot password.
