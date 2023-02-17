@@ -8,12 +8,14 @@ RUN apk add --no-cache \
   build-base \
   dbus-dev \
   dbus-libs \
+  git \
   glib-dev
 
 # Copy Python requirements file
 COPY src/requirements.txt /tmp/
 
 # Install packages into a directory
+RUN pip install wheel --no-cache-dir
 RUN pip install --user -r /tmp/requirements.txt --no-cache-dir
 
 
