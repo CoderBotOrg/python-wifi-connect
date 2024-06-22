@@ -1,5 +1,5 @@
 ## Build Python packages to avoid need for builds in main image
-FROM python:3.8.10-alpine3.14 AS python-buildstep
+FROM python:3.9.19-alpine3.20 AS python-buildstep
 
 # Prevent pip 'warn script location' warnings. Equivalent to --no-warn-script-location
 ENV PATH=/root/.local/bin:$PATH
@@ -20,7 +20,7 @@ RUN pip install --user -r /tmp/requirements.txt --no-cache-dir
 
 
 ## Compile container
-FROM python:3.8.10-alpine3.14
+FROM python:3.9.19-alpine3.20
 
 # Set system environment variables
 ENV FLASK_APP=run
